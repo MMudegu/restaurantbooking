@@ -1,0 +1,123 @@
+.Hero{
+    background-color: #495E57;
+    display: grid;
+}
+
+h1, h2{
+    font-family: MarkaziText; 
+}
+
+p, .ReserveButton{
+    font-family: Karla;
+}
+
+.Hero h1{
+    color: #F4CE14;
+    grid-row-start: 1;
+}
+
+.Hero h2{
+    color: white;
+    grid-row-start: 2;
+}
+
+.Hero p{
+    color: white;
+    grid-row-start: 3;
+}
+
+.ReserveButton{
+    background-color: #F4CE14;
+    border-radius: 5px;
+    grid-row-start: 4;
+    max-width: fit-content;
+    padding: 10px;
+    margin-bottom: 2em;
+    text-decoration: none;
+}
+
+.ReserveButton:hover{
+    box-shadow: 0px 0px 30px #333333;
+    border-style: groove;
+}
+
+.HeroImage{
+    grid-row-start: 1;
+    grid-row-end: 4;
+}
+
+@media  screen and (max-width:477px) {
+    .Hero{
+        grid-template-columns: 0.55fr 0.45fr;
+        grid-template-rows: 0.2fr 0.2fr 0.4fr 0.2fr;
+    }
+
+    .Hero h1{
+        margin-left: 0.2em;
+    }
+
+    .Hero h2{
+        margin-left: 0.28em;
+    }
+
+    .Hero p{
+        margin-left: 0.45em;
+    }
+
+    .HeroImage{
+        margin-top: 1em;
+        padding-left: 0.6em;
+        height: 150px;
+        width: 150px;
+    }
+
+    .ReserveButton{
+        margin-left: 0.5em;
+        margin-top: 3em;
+        margin-bottom: 1em;
+        padding: 1em;
+    }
+}
+
+@media screen and (min-width:477px) and (max-width:860px){
+    .Hero{
+        grid-template-columns: 0.8fr 0.2fr;
+        grid-template-rows: 0.2fr 0.2fr 0.4fr 0.2fr;
+        justify-content: right;
+    }
+
+    .HeroImage{
+        height: 200px;
+        width: 200px;
+        margin-top: 1em;
+        margin-right: 1em;
+    }
+
+    .ReserveButton{
+        margin-top: 2em;
+        margin-bottom: 1em;
+        padding: 1em;
+    }
+}
+
+@media  screen and (min-width:860px) {
+    .Hero{
+        grid-template-columns: 0.6fr 0.2fr 0.2fr;
+        grid-template-rows: 0.1fr 0.1fr 0.5fr 0.1fr;
+        justify-content: right;
+    }
+
+    .HeroImage{
+        height: 20em;
+        width: 20em;
+        margin-top: 1em;
+        margin-right: 1em;
+    }
+
+    .ReserveButton{
+        margin-top: 2em;
+        margin-bottom: 1em;
+        padding: 1em;
+    }
+
+}

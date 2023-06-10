@@ -1,0 +1,106 @@
+*{
+    padding: 0;
+    bottom: 0;
+    margin: 0;
+}
+
+@font-face{
+    font-family: Karla;
+    src: url(../Resources/Karla-VariableFont_wght.ttf);
+}
+
+@font-face{
+    font-family: MarkaziText;
+    src: url(../Resources/MarkaziText-VariableFont_wght.ttf)
+}
+
+@media screen and (max-width:774px){
+    header{
+        display: flex;
+        justify-content: center;
+        max-height: 3em;
+        min-width: 100vw;
+        background-color: #FBDABB;
+    }
+    
+    .SocialMediaIcons, .HamburgerIcon, .HamburgerMenu{
+        margin: 0.8em;
+        display: flex;
+        flex: 1 1 100%;
+    }
+    .HamburgerMenu{
+        flex-direction: column;
+    }
+    
+    .SocialMediaIcons a{
+        margin-left: 0.1em;
+    } 
+    
+    .HeaderLogo{
+        margin: 0.3em;
+        display: flex;
+        flex: 1 1 100%;
+        max-width: fit-content;
+    } 
+    
+    .SocialMediaIcons, .HamburgerIcon{
+        font-size: large;
+    }
+    
+    .MobileNavigation{
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 100%;
+        max-width: fit-content;
+        background-color: #FBDABB; 
+        border-style: groove;
+        font-family: Karla;
+        position: relative;
+    }
+    
+    .MobileNavigation a{
+        margin-top: 0.15em;
+        margin-bottom: 0.15em;
+        margin-left: 0.3em;
+        margin-right: 0.3em;
+    }
+    
+    .AngleUp{
+        font-size: medium;
+        background-color: #F4CE14;
+        margin-left: 45%;
+    }
+}
+
+@media screen and (min-width:774px){
+    header{
+        display: grid;
+        grid-template-columns: 0.2fr 0.2fr 0.6fr;
+        background-color: #FBDABB;
+    }    
+
+    .SocialMediaIcons{
+        font-size: x-large;
+        margin: 0.4em;
+    }
+
+    .SocialMediaIcons a{
+        margin-left: 0.1em;
+    }
+
+    .HeaderLogo{
+        margin: 0.2em;
+    }
+
+    .Navigation{
+        display: flex;
+        flex: 1 1 100%;
+        margin: 0.55em;
+        justify-content: right;
+        font-family: Karla;
+    }
+
+    .Navigation a{
+        margin: 0.2em;
+    }
+}
