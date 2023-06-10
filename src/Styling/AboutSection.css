@@ -1,0 +1,101 @@
+
+@media screen and (max-width:700px) {
+    .ImgOwner1,.ImgOwner2{
+        width: 150px;
+        height: 150px;
+    }
+    .AboutSection p{
+        padding-top: 1em;
+        padding-bottom: 3em;
+    }
+
+    .AboutSection{
+        background-color: #FBDABB;
+        padding-bottom: 3em;
+        display: grid;
+        justify-items: center;
+        grid-template-columns: 2;
+    }
+    
+    #About{
+        grid-column-start: 1;
+        grid-column-end: 3; 
+    }
+
+    
+    .AboutSection h2{
+        color: white;
+        grid-column-start: 1;
+        grid-column-end: 3;
+        justify-self: left;
+        margin-left: 2em;
+    }
+
+    #About + h1{
+        color: #F4CE14;
+        grid-column-start: 1;
+        grid-column-end: 3; 
+        justify-self: left;
+        margin-left: 1.5em;
+    }    
+
+}
+
+@media screen and (min-width:700px) {
+    .ImgOwner1,.ImgOwner2{
+        width: 250px;
+        height: 250px;
+    }
+    .AboutSection{
+        display: grid;
+        background-color: #FBDABB;
+        grid-template-columns: 0.3fr 0.2fr 0.4fr; 
+        grid-template-rows: repeat(4,0.25fr);
+        justify-items: center;
+        padding-bottom: 3em;
+    }
+    #About{
+         grid-row-start: 1;
+         grid-column-start: 1;
+         grid-row-end: 2;
+         grid-column-end: 5; 
+    }
+    #About + h1{
+        color: #F4CE14;
+        grid-row-start: 2;
+        grid-column-start: 1;
+        grid-row-end: 3;
+        grid-column-end: 2; 
+    
+    }
+    .AboutSection h2{
+        color: white;
+        grid-row-start: 2;
+        grid-column-start: 1;
+        grid-row-end: 3;
+        grid-column-end: 2; 
+        margin-top: 2em;
+       
+    }
+    .AboutSection p{
+        grid-row-start: 2;
+        grid-column-start: 1;
+        grid-row-end: 5;
+        grid-column-end: 2; 
+        margin-top: 5.5em;
+    }
+    .ImgOwner1{
+        grid-row-start: 3;
+        grid-column-start: 2;
+        grid-row-end: 5;
+        grid-column-end: 4; 
+        position: relative;
+    }
+    .ImgOwner2{
+        grid-row-start: 2;
+        grid-column-start: 3;
+        grid-row-end: 4;
+        grid-column-end: 5; 
+        position: relative;
+    }
+}

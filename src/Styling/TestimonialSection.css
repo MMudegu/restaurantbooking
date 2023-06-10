@@ -1,0 +1,94 @@
+.RatingFive{
+    color: #F4CE14;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    justify-self: center;
+}
+
+.RatingFive .Half{
+    color: black;
+}
+
+.TestimonialCard img{
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+}
+
+.TestimonialCard{
+    display: grid;
+    grid-template-columns: 0.6fr 0.4fr;
+    grid-template-rows: repeat(3,0.3333);
+    justify-content: center;
+    border-style: groove;
+    max-width: 300px;
+    background-color: #495E57;
+    padding-bottom: 3em;
+    margin-bottom: 3em;
+}
+
+.TestimonialCard .Review{
+    grid-row-start: 3;
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.TestimonialCard .Name{
+    padding-top: 3em;
+    color: #F4CE14;
+}
+
+
+
+@media screen and (max-width:600px) {
+    .TestimonialSection{
+        background-color: #FBDABB;
+        display: grid;
+        justify-items: center;
+    }
+}
+
+@media screen and (min-width:600px) and (max-width:900px){
+    .TestimonialSection{
+        background-color: #FBDABB;
+        padding-top: 5em;
+        padding-bottom: 5em;
+        display: grid;
+        justify-items: center;
+        grid-template-columns: 0.5fr 0.5fr;
+    }
+    .TestimonialSection h1{
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+}
+
+@media screen and (min-width:900px) and (max-width:1200px){
+    .TestimonialSection{
+        background-color: #FBDABB;
+        padding-top: 5em;
+        padding-bottom: 5em;
+        display: grid;
+        justify-items: center;
+        grid-template-columns: repear(3,0.3333fr);
+    }
+    .TestimonialSection h1{
+        grid-column-start: 1;
+        grid-column-end: 4;
+    }
+}
+
+@media screen and (min-width:1200px){
+    .TestimonialSection{
+        background-color: #FBDABB;
+        padding-top: 5em;
+        padding-bottom: 5em;
+        display: grid;
+        justify-items: center;
+        grid-template-columns: repeat(4,0.25fr);
+    }
+    .TestimonialSection h1{
+        grid-column-start: 1;
+        grid-column-end: 5;
+    }
+}

@@ -1,0 +1,56 @@
+
+
+
+@media screen and (max-width:700px) {
+    .Footer{
+        background-color: #EE9972;
+        padding-bottom: 3em;
+        display: flex;
+        justify-content: space-between;
+        
+    }
+
+    .DoormatNav, .Contacts{
+        display: grid;
+    }
+    
+    .DoormatNav a, .Contacts a{
+        margin-top: 0.2em;
+        margin-bottom: 0.2em;
+    }
+    
+    .FooterSocials a{
+        margin-left: 0.2em;
+        margin-right: 0.2em;
+    }
+    
+}
+
+@media screen and (min-width:700px) {
+    .Footer{
+        background-color: #EE9972;
+        padding-bottom: 3em;
+        display: flex;
+        justify-content: center;
+    }
+
+    .DoormatNav, .Contacts{
+        display: grid;
+    }
+    
+    .DoormatNav a, .Contacts a{
+        margin-top: 0.2em;
+        margin-bottom: 0.2em;
+    }
+    
+    .FooterSocials a{
+        margin-left: 0.2em;
+        margin-right: 0.2em;
+    }
+
+    .LargeScreenSpacing{
+        margin-left: 5em;
+        margin-right: 5em;
+    }
+    
+}
