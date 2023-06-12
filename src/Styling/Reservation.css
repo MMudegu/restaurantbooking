@@ -1,0 +1,207 @@
+@media screen and (max-width:600px) {
+    .Form{
+        display: flex;
+        flex: 1 1 100%;
+        flex-direction: column;
+        background-color: #FBDABB;
+    }
+    .Form .ReserveButton{
+        margin-left: 45%;
+    }
+    .Form fieldset{
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+        padding-bottom: 1em;
+        padding-top: 1em;
+    }
+    label{
+        padding-top: 0.5em;
+        padding-bottom: 0.5em;
+    }
+    
+    .UserDetails input{
+        max-width: 60vw;
+        min-height: 20px;
+    }
+    
+    .UserDetails{
+        display: grid;
+    }
+    
+    .TypeOfOccasion{
+        display: flex;
+    }
+    
+    .TypeOfOccasion label{
+        padding-right: 10px;
+    }
+    
+    .ReservationDateAndTime{
+        display: flex;
+        justify-content: center;
+    }
+    
+    .Date{
+        display: grid;
+        margin-right: 10px;
+    }
+    
+    .Time{
+        display: grid;
+        grid-template-rows: 0.5fr 0.5fr;
+        margin-left: 10px;
+    }
+    
+    #LabelForHrsAndMins, #HrsAndMins{
+        display: flex;
+        margin: 2px;
+        padding-right: 2px;
+    }
+    
+    #Hours,#Mins,#AmOrPm{
+        max-width: 50px;
+        min-width: 50px;
+        margin-right: 15px;
+    }
+    
+    .PrivateRoomRadio{
+        display: grid;
+        grid-template-rows: 0.3333fr 0.3333fr 0.3333fr;
+        grid-template-columns: 0.5fr 0.5fr;
+        align-items: center;
+        justify-content: center;
+    
+    }
+    
+    .PrivateRoomRadio p{
+        font-size: inherit;
+        grid-column: 1/span 2;
+    }
+    
+    .NumberOfGuests{
+        display: grid;
+        justify-content: center;
+    }
+    
+    .NumberOfGuests p{
+        justify-self: center;
+        padding: 10px;
+        background-color: #F4CE14;
+    }
+    .Comments{
+        display: grid;
+        justify-content: center;
+    }
+    #Instructions{
+        width: 80vw;
+    }
+    
+    
+}
+
+@media screen and (min-width:600px) {
+    .Form{
+        display: flex;
+        flex: 1 1 100%;
+        flex-direction: column;
+        background-color: #FBDABB;
+    }
+    .Form h1{
+        text-align: center;
+    }
+
+    .Form .ReserveButton{
+        margin-left: 45%;
+    }
+
+    .Form fieldset{
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+        padding-bottom: 1em;
+        padding-top: 1em;
+        margin-left: 10vw;
+        margin-right: 10vw;
+        padding-left: 10vw;
+    }
+    label{
+        padding-top: 0.5em;
+        padding-bottom: 0.5em;
+    }
+    
+    .UserDetails input{
+        max-width: 40vw;
+        min-height: 20px;
+    }
+    
+    .UserDetails{
+        display: grid;
+    }
+    
+    .TypeOfOccasion{
+        display: flex;
+    }
+    
+    .TypeOfOccasion label{
+        padding-right: 10px;
+    }
+    
+    .ReservationDateAndTime{
+        display: flex;
+        justify-content: center;
+    }
+    
+    .Date{
+        display: grid;
+        margin-right: 10px;
+    }
+    
+    .Time{
+        display: grid;
+        grid-template-rows: 0.5fr 0.5fr;
+        margin-left: 10px;
+    }
+    
+    #LabelForHrsAndMins, #HrsAndMins{
+        display: flex;
+        margin: 2px;
+        padding-right: 2px;
+    }
+    
+    #Hours,#Mins,#AmOrPm{
+        max-width: 50px;
+        min-width: 50px;
+        margin-right: 15px;
+    }
+    
+    .PrivateRoomRadio{
+        display: grid;
+        grid-template-rows: 0.3333fr 0.3333fr 0.3333fr;
+        grid-template-columns: 0.5fr 0.5fr;
+        align-items: center;
+        justify-content: center;
+    
+    }
+    
+    .PrivateRoomRadio p{
+        font-size: inherit;
+        grid-column: 1/span 2;
+    }
+    
+    .NumberOfGuests{
+        display: grid;
+        justify-content: center;
+    }
+    
+    .NumberOfGuests p{
+        justify-self: center;
+        padding: 10px;
+        background-color: #F4CE14;
+    }
+    .Comments{
+        display: grid;
+    }
+    #Instructions{
+        width: 60vw;
+    }
+    
+}

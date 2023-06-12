@@ -15,8 +15,6 @@ export default function App(){
             <Route path="/OrderOnline" element={<OrderOnline/>}/>
             <Route path="/Login" element={<Login/>}/>          
         </Routes>
-
-        <LandingPage/>
         </>
     )
 }
