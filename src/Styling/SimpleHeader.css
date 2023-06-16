@@ -8,20 +8,22 @@
         display: flex;
         max-height: 10vh;
     }
-    
+
     .SimpleHeader nav{
+        margin-top: 3%;
+        margin-left: 2%;
+    }
+
+    .SimpleHeaderNav a{
         display: flex;
         justify-self: left;
         flex: 1 1;
         flex-basis: content;
         align-items: center;
         background-color: #F4CE14;
-        padding-left: 20px;
-        padding-right: 20px;
+        padding: 20px;
         border-radius: 10px;
-        margin-top: 2%;
-        margin-bottom: 2%;
-        margin-left: 2%;
+
     }
     .SimpleHeader img{
         display: flex;
@@ -41,20 +43,23 @@
         max-height: 10vh;
     }
     
-    .SimpleHeader nav{
+    .SimpleHeaderNav{
+        margin-top: 2%;
+        margin-left: 2%;
+    }
+
+    .SimpleHeaderNav a{
         display: flex;
         justify-self: left;
         flex: 1 1;
         flex-basis: content;
         align-items: center;
         background-color: #F4CE14;
-        padding-left: 20px;
-        padding-right: 20px;
+        padding: 20px;
         border-radius: 10px;
-        margin-top: 1%;
-        margin-bottom: 1%;
-        margin-left: 1%;
+
     }
+
     .SimpleHeader img{
         display: flex;
         justify-self: center;

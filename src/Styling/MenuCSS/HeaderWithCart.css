@@ -1,0 +1,58 @@
+
+.LeftArrow{
+    font-size: large;
+}
+
+.CartCounterLink{
+    display: grid;
+    grid-template-columns: 0.8fr 0.2fr;
+}
+.CartCounter{
+    background-color: #EE9972;
+    max-height: 20px;
+    max-width: 40px;
+    color: white;
+    padding: 5px;
+    border-radius: 50%;
+}
+
+.CartContainer{
+    margin-top: 0.5em;
+    margin-right: 0.5em;
+}
+
+@media screen and (max-width:600px) {
+    
+    .HeaderWithCart{
+        display: flex;
+        max-height: 10vh;
+    }
+    
+    .HeaderWithCart img{
+        display: flex;
+        justify-self: center;
+        flex: 1 1 100%;
+        margin-top: 2%;
+        margin-bottom: 2%;
+        margin-left: 2%;
+    }
+}
+
+
+@media screen and (min-width:600px) {
+    
+    .HeaderWithCart{
+        display: flex;
+        max-height: 10vh;
+    }
+    
+    .HeaderWithCart img{
+        display: flex;
+        justify-self: center;
+        flex: 1 1 100%;
+        margin-top: 1%;
+        margin-bottom: 1%;
+        margin-left: 1%;
+    }
+}
+

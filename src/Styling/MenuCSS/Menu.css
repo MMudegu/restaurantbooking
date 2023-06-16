@@ -1,0 +1,51 @@
+.MenuMain{
+    background-color: #FBDABB;
+    display: grid;
+    justify-items: center;
+}
+@media screen and (max-width:600px) {
+    .MenuBody{
+        background-color: #FBDABB;
+        display: grid;
+        grid-template-columns: 0.5fr 0.5fr;
+        margin-bottom: 100px;
+    }
+    
+    #Dish{
+        grid-column: 1/span 1;
+        margin-left: 10px;
+    }
+    
+    #Price{
+        grid-column: 2/span 1;
+        justify-self: right;
+        margin-right: 10px;
+    }
+    
+    #MenuCard{
+        grid-column: 1/span 2; 
+    }
+}
+
+@media screen and (min-width:600px) {
+    .MenuBody{
+        background-color: #FBDABB;
+        display: grid;
+        grid-template-columns: repeat(3,0.3333fr);
+        justify-items: center;
+        max-width: 700px;
+        margin-bottom: 100px;
+    }
+    
+    #Dish{
+        grid-column: 1/span 1;
+    }
+    
+    #Price{
+        grid-column: 2/span 1;
+    }
+    
+    #MenuCard{
+        grid-column: 1/span 3; 
+    }
+}

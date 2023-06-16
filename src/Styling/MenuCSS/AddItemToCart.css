@@ -1,0 +1,52 @@
+.AddToCart{
+    display: flex;
+    flex: 1 1 100%;
+    justify-content: center;
+    align-items: center;
+    max-width: fit-content;
+}
+
+.AddToCart h2{
+    display: flex;
+}
+
+.Red{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: red;
+    color: #F4CE14;
+    font-size: xx-large;
+    margin-right: 45px;
+}
+.Green{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #19A622;
+    color: #F4CE14;
+    font-size: xx-large;
+    margin-right: 45px;
+}
+
+.RemoveFoodItem,.AddFoodItem{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #F2EDD8;
+    color: #F4CE14;
+    font-size: xx-large;
+}
+
+.RemoveFoodItem,.DisplayNumber{
+    margin-right: 10px;
+}

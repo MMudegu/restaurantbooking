@@ -9,9 +9,8 @@ import { useState } from "react"
 export const SimpleHeader = ()=>{
     return(
         <header className="SimpleHeader">
-            <nav>
-                <FaArrowLeft className="LeftArrow"/>
-                <Link to="/">Home</Link>
+            <nav className="SimpleHeaderNav">  
+                <Link to="/"><FaArrowLeft className="LeftArrow"/>Home</Link>
             </nav>
             <img src={Logo} alt="Logo"/>
         </header>
