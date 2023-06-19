@@ -4,11 +4,13 @@ import {dishes} from '../Components/MenuJS/dishes'
 const menuItemsContext = createContext(undefined);
 
 export default function MenuItemsProvider({children}){
-    const [itemSelected,setItemSelected] = useState(false);
-    const [noOfItemSelected,setNoOfItemSelected] = useState(0);
+    //This state will store the key and number of times an item is selected at the AddItemToCart component
+    const [noOfItemSelected,setNoOfItemSelected] = useState([]);
+    const [totalDishesSelected,setTotalDishesSelected]= useState();
+    const [typeOfFood,setTypeOfFood] = useState();
 
     return <menuItemsContext.Provider 
-                value={{itemSelected,setItemSelected,noOfItemSelected,setNoOfItemSelected,dishes}}>
+                value={{noOfItemSelected,setNoOfItemSelected,dishes,totalDishesSelected,setTotalDishesSelected,typeOfFood,setTypeOfFood}}>
                     {children}
             </menuItemsContext.Provider>
 }

@@ -3,6 +3,17 @@
     display: grid;
     justify-items: center;
 }
+
+.MenuMain a{
+    text-decoration: none;
+    border-style: groove;
+    padding: 5px 30px 5px 30px;
+    margin: 15px 0px 15px 0px;
+    background-color: #F4CE14;
+    justify-self: center;
+    grid-column: 1/span 3;
+}
+
 @media screen and (max-width:600px) {
     .MenuBody{
         background-color: #FBDABB;

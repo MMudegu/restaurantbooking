@@ -2,52 +2,64 @@ import { useState } from 'react';
 import '../../Styling/MenuCSS/AddItemToCart.css'
 import { useMenuItemsContext } from '../../Context/MenuItemsContext';
 
-export default function AddToCart(){
+export default function AddToCart({dbKey}){
     const [buttonClass,setButtonClass] = useState('Green');
-    const {itemSelected,setItemSelected,noOfItemSelected,setNoOfItemSelected} = useMenuItemsContext();
+    const {noOfItemSelected,setNoOfItemSelected} = useMenuItemsContext();
+
+    //The states prefixed by local are used for state management only inside this component
+    const [localItemSelected,setLocalItemSelected] = useState(false);
+    const [localNoOfItemSelected,setLocalNoOfItemSelected] = useState(0);
 
     const ItemSelection= ()=>{
-        if(itemSelected){
+        if(localItemSelected){
             setButtonClass('Green')
-            setItemSelected(false);
+            setLocalItemSelected(false);
         }
-        else if(!itemSelected){
+        else if(!localItemSelected){
             setButtonClass('Red')
-            setItemSelected(true);
+            setLocalItemSelected(true);
         }
     }
      const ItemIncrease = ()=>{
-        if(itemSelected)
+        if(localItemSelected)
         {
-            if(noOfItemSelected>=0)
+            if(localNoOfItemSelected>=0)
             {
-                setNoOfItemSelected(noOfItemSelected + 1);
+                setLocalNoOfItemSelected(localNoOfItemSelected + 1);
+
+                //The Local state is used to set the global state noOfItemSelected which has been shared via MenuItemsContext
+                //A dbKey which is part of the dishes data is prefixed to the array for easy data retrieval
+                setNoOfItemSelected([...noOfItemSelected,`${dbKey} ${localNoOfItemSelected + 1}`]);
             }
         }
-        else if(!itemSelected)
+        else if(!localItemSelected)
         {
             alert('Please select item on the left before proceeding to adding or subtracting the number');
         }
      }
 
      const ItemDecrease = ()=>{
-        if(itemSelected)
+        if(localItemSelected)
         {
-            if(noOfItemSelected>0)
+            if(localNoOfItemSelected>0)
             {
-                setNoOfItemSelected(noOfItemSelected - 1);
+                setLocalNoOfItemSelected(localNoOfItemSelected - 1);
+
+                //The Local state is used to set the global state noOfItemSelected which has been shared via MenuItemsContext
+                //A dbKey which is part of the dishes data is prefixed to the array for easy data retrieval
+                setNoOfItemSelected([...noOfItemSelected,`${dbKey} ${localNoOfItemSelected - 1}`]);
             }
         }
-        else if(!itemSelected)
+        else if(!localItemSelected)
         {
             alert('Please select item on the left before proceeding to adding or subtracting the number');
         }
      }
     return(
         <div className='AddToCart'>
-            <h2>Add Item :&ensp;<button className= {buttonClass} onClick={ItemSelection}>{itemSelected?<h2>-</h2>:<h2>+</h2>}</button></h2>
+            <h2>Add Item :&ensp;<button className= {buttonClass} onClick={ItemSelection}>{localItemSelected?<h2>-</h2>:<h2>+</h2>}</button></h2>
             <button className='RemoveFoodItem' onClick={ItemDecrease}><h2>-</h2></button>
-            <div className='DisplayNumber'><h2>{noOfItemSelected}</h2></div>
+            <div className='DisplayNumber'><h2>{localNoOfItemSelected}</h2></div>
             <button className='AddFoodItem' onClick={ItemIncrease}><h2>+</h2></button>
         </div>
     );
