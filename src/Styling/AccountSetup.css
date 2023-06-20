@@ -1,0 +1,82 @@
+.AccountSetupContainer{
+    display: grid;
+    background-color: #FBDABB;
+}
+
+.AccountInformation{
+    display: grid;
+}
+
+.RadioBtns{
+    display: flex;
+    flex: 1 1 100%;
+    justify-content: center;
+}
+
+#RadioTrue, #RadioFalse{
+    margin-right: 10px;
+    margin-left: 15px;
+}
+
+.BillingInformation{
+    display: grid;
+}
+
+.ExpirationDate{
+    display: flex;
+    justify-content: space-around;
+}
+
+.AccountSetupContainer button{
+    justify-self: center;
+    padding: 10px;
+    background-color: #F4CE14;
+    border-radius: 10px;
+    margin-bottom: 150px;
+}
+
+.AccountSetupContainer h1{
+    justify-self: center;
+    color: #F4CE14;
+}
+
+.PaypalLink{
+    padding: 10px;
+    justify-self: center;
+    border-style: groove;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    background-color: #495E57;
+    color: #F4CE14;
+    border-radius: 10px;
+}
+
+@media screen and (max-width:600px) {
+    .AccountSetupContainer fieldset{
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+        padding-bottom: 1em;
+        padding-top: 1em;
+    }
+
+    .AccountSetupContainer input{
+        max-width: 60vw;
+        min-height: 20px;
+    }
+}
+
+@media screen and (min-width:600px) {
+    .AccountSetupContainer fieldset{
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+        padding-bottom: 1em;
+        padding-top: 1em;
+        margin-left: 10vw;
+        margin-right: 10vw;
+        padding-left: 10vw;
+    }
+    .AccountSetupContainer input{
+        max-width: 40vw;
+        min-height: 20px;
+    }
+}

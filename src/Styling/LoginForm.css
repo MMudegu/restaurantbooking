@@ -1,0 +1,50 @@
+.LoginFormContainer{
+    background-color: #FBDABB;
+    display: grid;
+    min-height: 55vh;
+    justify-content: center;
+}
+
+.LoginDetails{
+    display: grid;
+    background-color: #495E57;;
+}
+
+.LoginDetails h1{
+    justify-self: center;
+    color: #F4CE14;
+}
+
+.LoginDetails label{
+    color: #F4CE14;
+}
+
+@media screen and (max-width:600px) {
+    .LoginDetails{
+        min-width: 100vw;
+        max-height: 30vh;
+        margin-top: 10vh;
+        padding-bottom: 30px;
+    }
+    .LoginDetails input{
+        width: 40%;
+    }
+    .LoginDetails input, .LoginDetails label{
+        margin-left: 10%;
+    }
+}
+
+@media screen and (min-width:600px) {
+    .LoginDetails{
+        width: 70vw;
+        max-height: 30vh;
+        margin-top: 10vh;
+        padding-bottom: 30px;
+    }
+    .LoginDetails input{
+        width: 70%;
+    }
+    .LoginDetails input, .LoginDetails label{
+        margin-left: 10%;
+    }
+}

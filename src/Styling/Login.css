@@ -1,0 +1,21 @@
+.Login{
+    background-color: #FBDABB;
+    display: grid;
+}
+
+.LoginChildren a{
+    text-decoration: none;
+    padding: 15px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #F4CE14;
+    background-color: #495E57;
+    border-radius: 10px;
+}
+
+.LoginChildren{
+    display: flex;
+    flex: 1 1 100%;
+    justify-content: space-around;
+    min-width: 100vw;
+}
