@@ -27,6 +27,10 @@
     justify-content: space-around;
 }
 
+.ExpirationDate input{
+    width: 80px;
+}
+
 .AccountSetupContainer button{
     justify-self: center;
     padding: 10px;
@@ -49,6 +53,16 @@
     background-color: #495E57;
     color: #F4CE14;
     border-radius: 10px;
+}
+
+.Errors{
+    max-width: fit-content;
+    padding: 2px;
+    margin-top: 3px;
+    color: red;
+}
+.NoDisplay{
+    display: none;
 }
 
 @media screen and (max-width:600px) {

@@ -38,32 +38,21 @@
     
     .ReservationDateAndTime{
         display: flex;
-        justify-content: center;
     }
     
     .Date{
         display: grid;
         margin-right: 10px;
     }
-    
+
     .Time{
-        display: grid;
-        grid-template-rows: 0.5fr 0.5fr;
         margin-left: 10px;
+        margin-right: 10px;
     }
     
-    #LabelForHrsAndMins, #HrsAndMins{
-        display: flex;
-        margin: 2px;
-        padding-right: 2px;
+    .Time input{
+        width: 40px;
     }
-    
-    #Hours,#Mins,#AmOrPm{
-        max-width: 50px;
-        min-width: 50px;
-        margin-right: 15px;
-    }
-    
     .PrivateRoomRadio{
         display: grid;
         grid-template-rows: 0.3333fr 0.3333fr 0.3333fr;
@@ -156,26 +145,16 @@
     }
     
     .Time{
-        display: grid;
-        grid-template-rows: 0.5fr 0.5fr;
-        margin-left: 10px;
+        margin-left: 1em;
+        margin-right: 1em;
     }
-    
-    #LabelForHrsAndMins, #HrsAndMins{
-        display: flex;
-        margin: 2px;
-        padding-right: 2px;
+
+    .Time input{
+        width: 40px;
     }
-    
-    #Hours,#Mins,#AmOrPm{
-        max-width: 50px;
-        min-width: 50px;
-        margin-right: 15px;
-    }
-    
     .PrivateRoomRadio{
         display: grid;
-        grid-template-rows: 0.3333fr 0.3333fr 0.3333fr;
+        grid-template-rows: 0.5fr 0.5fr;
         grid-template-columns: 0.5fr 0.5fr;
         align-items: center;
         justify-content: center;
