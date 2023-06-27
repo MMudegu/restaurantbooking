@@ -9,7 +9,7 @@ import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from 'yup'
 import {changeBorderColor} from './AccountSetup'
-import { useUserAccountContext } from "../Context/UserAccountContext"
+
 
 export const SimpleHeader = ()=>{
     return(
@@ -24,7 +24,6 @@ export const SimpleHeader = ()=>{
 
 export default function Reservation(){
     const [noOfGuests,setNoOfGuests] = useState(14);
-    const {setUserTableBooking} = useUserAccountContext();
     const schema = yup.object({
         firstName: yup.string('Please enter a valid name').required('This field is required'),
         lastName: yup.string('Please enter a valid name').required('This field is required'),
@@ -45,7 +44,7 @@ export default function Reservation(){
         <>
         <SimpleHeader/>
         <main>
-            <form className="Form" onSubmit={handleSubmit(data=>{setUserTableBooking(data);reset()})}>
+            <form className="Form" onSubmit={handleSubmit(data=>{localStorage.setItem('tableBookingInfo',JSON.stringify(data));reset()})}>
                 <h1>Reserve a table</h1>
                 <fieldset className="UserDetails">
                     <label htmlFor="FirstName">First Name:</label>

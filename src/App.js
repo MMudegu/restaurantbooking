@@ -7,13 +7,11 @@ import Login from "./Components/Login/Login";
 import MenuItemsProvider from "./Context/MenuItemsContext";
 import AccountSetup from "./Components/AccountSetup";
 import LoginForm from "./Components/Login/LoginForm";
-import UserAccountProvider from "./Context/UserAccountContext";
 
 
 export default function App(){
     return(
         <>
-            <UserAccountProvider>
             <MenuItemsProvider>
                 <Routes>
                 <Route path="/" element={<LandingPage/>}/>
@@ -27,7 +25,6 @@ export default function App(){
                 </Route>          
                 </Routes>
             </MenuItemsProvider>
-            </UserAccountProvider>
         </>
     )
 }

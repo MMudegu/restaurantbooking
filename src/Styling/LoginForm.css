@@ -4,10 +4,25 @@
     min-height: 55vh;
     justify-content: center;
 }
-
 .LoginDetails{
     display: grid;
     background-color: #495E57;;
+}
+.LoginDetails p{
+    color: red;
+    margin-left: 10%;
+    margin-top: 3px;
+}
+.LoginDetails button{
+    width: 10em;
+    justify-self: center;
+    margin-top: 10px;
+    border-radius: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: #F4CE14;
+    background-color: #495E57;
+    border-style: groove;
 }
 
 .LoginDetails h1{

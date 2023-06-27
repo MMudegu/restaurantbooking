@@ -1,0 +1,130 @@
+.CartHeader{
+    display: flex;
+    height: 10vh;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.CartHeader > a{
+    text-decoration: none;
+    margin-left: 50px;
+    margin-right: 50px;
+    padding: 10px;
+    background-color: #F4CE14;
+    border-radius: 8px;
+    border-style: groove;
+    border-width: 2px;
+}
+
+
+.Home{
+    display: flex;
+    background-color: #F4CE14;
+    border-radius: 8px;
+    border-style: groove;
+    border-width: 2px;
+    padding: 10px;
+    margin-left: 2em;
+    margin-right: 1em;
+}
+
+.Home a{
+    text-decoration: none;
+}
+
+.OrderOnlineMain{
+    min-height: 60vh;
+    background-color: #FBDABB;
+}
+
+.FullName{
+    display: flex;
+}
+
+.FullName h2 {
+    padding-top: 2px;
+    margin-left: 5px;
+}
+
+.MealChoices{
+    display: grid;
+}
+
+.OrderOnlineMain{
+    display: grid;
+}
+
+
+.OrderForm{
+    display: grid;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.OrderForm fieldset{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.OrderButton{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    justify-self: center;
+    padding: 5px;
+    border-radius: 10px;
+    border-style: groove;
+    background-color: #F4CE14;
+    width: 200px;
+}
+
+.Instructions{
+    display: grid;
+}
+.Instructions textarea{
+    justify-self: center;
+    margin-bottom: 30px;
+}
+
+.Order label{
+    margin-right: 10px;
+}
+
+.OrderOnlineMain h1, .OrderOnlineMain h2{
+    color: #F4CE14;
+    text-align: center;
+}
+.MealChoices h2{
+    color: #F4CE14;
+    margin-top: 15px;
+    justify-self: center;
+}
+
+@media screen and (max-width:600px) {
+    .Instructions textarea{
+        width: 70vw
+    }
+    .Order div{
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .Order *{
+        margin-left: 5px;
+    }
+   
+}
+
+@media screen and (min-width:600px) {
+    .Instructions textarea{
+        width: 40vw
+    }
+    .Order div{
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .Order *{
+        margin-left: 5px;
+    }
+    .OrderForm{
+        width: 60vw;
+        place-self: center;
+    }
+}

@@ -2,7 +2,7 @@ import "../../Styling/MenuCSS/Menu.css"
 import '../../Styling/MenuCSS/MenuCard.css'
 import Footer from "../Footer"
 import {FaArrowLeft} from "react-icons/fa"
-import {Link} from "react-router-dom"
+import {Link, json} from "react-router-dom"
 import Logo from '../../Resources/Logo .svg'
 import Cart from "../../Resources/Basket.svg"
 import "../../Styling/MenuCSS/HeaderWithCart.css"
@@ -12,6 +12,7 @@ import { useEffect, useState } from "react"
 
 const HeaderWithCart=()=>{
     const {totalDishesSelected} = useMenuItemsContext();
+    const isUserLoggedIn = JSON.parse(sessionStorage.getItem('userLoggedIn'));
     return(
         <header className="HeaderWithCart">
             <nav className="SimpleHeaderNav">   
@@ -19,8 +20,13 @@ const HeaderWithCart=()=>{
             </nav>
             <img src={Logo} alt="Logo"/>
             <nav className="CartContainer">
-                <Link to="/OrderOnline" className="CartCounterLink">
-                <img src={Cart}/><div className="CartCounter">{totalDishesSelected}</div></Link>
+                {isUserLoggedIn?
+                    <Link to="/OrderOnline" className="CartCounterLink">
+                    <img src={Cart}/><div className="CartCounter">{totalDishesSelected.reduce((accumulator,element)=>accumulator+element,0)}</div></Link>:
+
+                    <Link to="/Login" className="CartCounterLink">
+                    <img src={Cart}/><div className="CartCounter">{totalDishesSelected.reduce((accumulator,element)=>accumulator+element,0)}</div></Link>                    
+                }
             </nav>
         </header>
     );
@@ -42,32 +48,42 @@ const MenuItems = ({dbKey,Category,Name,Price,Description})=>{
 //This is the parent component of the menu page
 export default function Menu(){
     const {dishes} = useMenuItemsContext();
-    const {noOfItemSelected,setTotalDishesSelected,setTypeOfFood} = useMenuItemsContext();
+    const {noOfItemSelected,setTotalDishesSelected,setTypeOfFoodSelected,setTotalAmount} = useMenuItemsContext();
+    const isUserLoggedIn = JSON.parse(sessionStorage.getItem('userLoggedIn'));
   
     //This function is used to retrieve the food items selected by the user and in what quantity from the AddItemToCart component
     const RetrieveDish= ()=> {  
+        let indexOfUniqueKeys = [];
+        let i;
         //These 2 funstions split the keys of food selected from the number of times they have been selected.
         //The noOfItemSelected is set from the AddItemToCart
         const tempKeys = noOfItemSelected.map(el=>el.split(' ',2)).map(el=>Number(el[0]));
         const tempValues = noOfItemSelected.map(el=>el.split(' ',2)).map(el=>Number(el[1]));
 
         //This function filters the duplicate keys to create an array of single unique keys representing the different types food selected
-        const selectedFoodItemsKeys = tempKeys.filter((element,index,array)=>array.lastIndexOf(element)===index);
-        setTypeOfFood(selectedFoodItemsKeys);
+        //It also stores their indices in a variable for them to be used to filter the values
+        //i = 0 is a dummy used because null throws an error from ESLint
+        const selectedFoodItemsKeys = tempKeys.filter((element,index,array)=>
+        {array.lastIndexOf(element)===index? indexOfUniqueKeys[index] = index: i = 0;
+            return array.lastIndexOf(element)===index;
+        });
 
-        //Has the current key selected which is synonymous with the current food item picked
-        const currentKeySelected = selectedFoodItemsKeys.slice(-1);
-        
-        //These methods find the last indices for all food items selected ie from tempKeys and then maintains the most recent one in the variable 
-        //currentKeyIndex. The index also corresponds to total number of food items less one
-        const currentKeyIndex = (selectedFoodItemsKeys.map((el,index)=>tempKeys.lastIndexOf(el))).slice(-1);  
-        const food = Number(currentKeyIndex)+1;
-        setTotalDishesSelected(food);
+        setTypeOfFoodSelected(selectedFoodItemsKeys);
 
-        //The current number of times the selected food(ie Key) has been ordered in terms of volume
-        const volumeOfCurrentKey =tempValues[currentKeyIndex];
+        //This function filters the unique values that correspond to indices of the unique keys
+        const selectedFoodItemsValues = tempValues.filter((element,index,array)=>index === indexOfUniqueKeys[index])
 
-        //console.log(`Current Key: ${currentKeySelected}    `,`Current Key Index: ${currentKeyIndex} `,'-------',`Number of food items: ${volumeOfCurrentKey} `)
+        setTotalDishesSelected(selectedFoodItemsValues);
+
+        let tempKey,arrayOfTotalPrice,elementMatchingTheKey;
+
+        arrayOfTotalPrice = selectedFoodItemsKeys.map((element,index)=>{
+            tempKey = element;
+            elementMatchingTheKey = dishes.filter((el)=>el.key===tempKey);
+            return selectedFoodItemsValues[index] * elementMatchingTheKey[0].price;
+        });
+
+        setTotalAmount(arrayOfTotalPrice.reduce((accumulator,element)=>accumulator+element,0));
      }
 
     useEffect(
@@ -85,7 +101,7 @@ export default function Menu(){
                 <h1 id="Price">Price</h1>
                 <div id="MenuCard">{dishes.map( ({key,category,name,price,description})=><MenuItems Category={category} Name={name} Price={price} Description={description} dbKey={key}/>)}
                 </div>
-                <Link to='/OrderOnline'>Order Now!</Link>
+                {isUserLoggedIn?<Link to='/OrderOnline'>Order Now!</Link>:<Link to='/Login'>Order Now!</Link>}
                 </div>
             </main>
             <Footer/>

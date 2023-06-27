@@ -4,7 +4,6 @@ import { useForm } from 'react-hook-form';
 // import { DevTool } from '@hookform/devtools';
 import {yupResolver} from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import { useUserAccountContext } from '../Context/UserAccountContext';
 
 //Used to highlight the input once validation fails
 export const changeBorderColor=(id='Country')=>document.getElementById(id).style.border = 'solid red';
@@ -82,8 +81,8 @@ const PaymentField = ({paymentType,form})=>{
 }
 
 export default function AccountSetup(){
-    const {setUserDetails} = useUserAccountContext();
     const[choosePaymentPlatform,setChoosePaymentPlatform] = useState(true);
+
     const schema = yup.object({
         firstName: yup.string('Please enter a valid name').required('This field is required'),
         lastName: yup.string('Please enter a valid name').required('This field is required'),
@@ -111,11 +110,17 @@ export default function AccountSetup(){
     });
 
     const form = useForm({mode:'onTouched',resolver:yupResolver(schema)});
-    const {register,handleSubmit,formState,getValues,reset} = form;
+    const {register,handleSubmit,formState,reset} = form;
     // const {control} = form;
     const {errors} = formState;
 
-    return <form className='AccountSetupContainer' onSubmit={handleSubmit((data)=>{setUserDetails(data);reset()})}>
+    return <form className='AccountSetupContainer' onSubmit={handleSubmit(
+        (data)=>{
+            localStorage.setItem('accountSetup','true');
+            localStorage.setItem('userDetails',JSON.stringify(data));
+            reset();
+        })}>
+
         <h1>ACCOUNT INFORMATION</h1>
         <fieldset className='AccountInformation'>
 
