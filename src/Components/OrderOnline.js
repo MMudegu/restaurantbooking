@@ -11,7 +11,7 @@ const CartHeader = ()=>{
     return(
         <header className="CartHeader">
             <div className="Home"><FaArrowLeft/><Link to='/'>Home</Link></div>
-            <img src={Logo}/>
+            <img src={Logo} alt="Little lemon logo"/>
             <Link to='/Menu'>Menu</Link>
         </header>
     )

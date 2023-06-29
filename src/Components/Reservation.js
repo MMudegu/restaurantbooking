@@ -16,7 +16,7 @@ export const SimpleHeader = ()=>{
             <nav className="SimpleHeaderNav">  
                 <Link to="/"><FaArrowLeft className="LeftArrow"/>Home</Link>
             </nav>
-            <img src={Logo} alt="Logo"/>
+            <img src={Logo} alt="Little lemon logo"/>
         </header>
     );
 }

@@ -18,14 +18,14 @@ const HeaderWithCart=()=>{
             <nav className="SimpleHeaderNav">   
                 <Link to="/"><FaArrowLeft className="LeftArrow"/>Home</Link>
             </nav>
-            <img src={Logo} alt="Logo"/>
+            <img src={Logo} alt="This is the little lemon logo"/>
             <nav className="CartContainer">
                 {isUserLoggedIn?
                     <Link to="/OrderOnline" className="CartCounterLink">
-                    <img src={Cart}/><div className="CartCounter">{totalDishesSelected.reduce((accumulator,element)=>accumulator+element,0)}</div></Link>:
+                    <img src={Cart} alt="This is a shopping cart logo"/><div className="CartCounter">{totalDishesSelected.reduce((accumulator,element)=>accumulator+element,0)}</div></Link>:
 
                     <Link to="/Login" className="CartCounterLink">
-                    <img src={Cart}/><div className="CartCounter">{totalDishesSelected.reduce((accumulator,element)=>accumulator+element,0)}</div></Link>                    
+                    <img src={Cart} alt="This is a shopping cart logo"/><div className="CartCounter">{totalDishesSelected.reduce((accumulator,element)=>accumulator+element,0)}</div></Link>                    
                 }
             </nav>
         </header>
@@ -64,7 +64,7 @@ export default function Menu(){
         //It also stores their indices in a variable for them to be used to filter the values
         //i = 0 is a dummy used because null throws an error from ESLint
         const selectedFoodItemsKeys = tempKeys.filter((element,index,array)=>
-        {array.lastIndexOf(element)===index? indexOfUniqueKeys[index] = index: i = 0;
+        {array.lastIndexOf(element)===index? indexOfUniqueKeys[index] = index: i=0;
             return array.lastIndexOf(element)===index;
         });
 

@@ -17,12 +17,11 @@ const Mobile =()=>{
     const isUserLoggedIn = JSON.parse(sessionStorage.getItem('userLoggedIn'));
 
     const handleClick=(e)=>{
+        e.preventDefault();
         if(hambugerMenuClicked){
-            e.preventDefault();
             setHamburgerMenuClicked(false);
         }
         else if(!hambugerMenuClicked){
-            e.preventDefault();
             setHamburgerMenuClicked(true);
         }
     };

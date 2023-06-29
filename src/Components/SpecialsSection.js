@@ -30,7 +30,7 @@ const specials = [
 
 const Mapping= ({icon,title,price,description})=>(
     <div className="Tile">
-        <img src={icon}/>
+        <img src={icon} alt="This is the particular dish's icon"/>
         <h2>{title}</h2>
         <h2>{price}</h2>
         <p>{description}</p>

@@ -41,7 +41,7 @@ const Socials= ()=>{
 export default function Footer(){
     return(
         <footer className="Footer">
-            <img src={Logo} className="FooterImage"/>
+            <img src={Logo} className="FooterImage" alt="This is the little lemon restaurant logo"/>
             <span className="LargeScreenSpacing"><h2>Navigation</h2><DoormatNav/></span>
             <span className="LargeScreenSpacing"><h2>Contacts</h2><Contacts/></span>
             <span><h2>Socials</h2><Socials/></span>

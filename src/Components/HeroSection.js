@@ -14,7 +14,7 @@ export default function HeroSection(){
                ut labore et dolore magna aliqua.<br/>
             </p>
             <Link to="/Reservations" className="ReserveButton">Reserve a table</Link>
-            <img src={RestaurantFood} className="HeroImage" alt="Sample Dish Picture"/>
+            <img src={RestaurantFood} className="HeroImage" alt="Sample Dish"/>
         </main>
     )
 }
