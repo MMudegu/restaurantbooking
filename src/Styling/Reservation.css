@@ -6,7 +6,7 @@
         background-color: #FBDABB;
     }
     .Form .ReserveButton{
-        margin-left: 45%;
+        margin-left: 30px;
     }
     .Form fieldset{
         margin-top: 0.5em;
@@ -85,7 +85,9 @@
         width: 80vw;
     }
     
-    
+    #Hours{
+        margin-left: 10px;
+    }
 }
 
 @media screen and (min-width:600px) {
@@ -183,4 +185,7 @@
         width: 60vw;
     }
     
+    #Hours{
+        margin-left: 10px;
+    }
 }

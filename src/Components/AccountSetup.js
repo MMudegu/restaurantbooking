@@ -113,12 +113,14 @@ export default function AccountSetup(){
     const {register,handleSubmit,formState,reset} = form;
     // const {control} = form;
     const {errors} = formState;
-
+    
     return <form className='AccountSetupContainer' onSubmit={handleSubmit(
         (data)=>{
             localStorage.setItem('accountSetup','true');
             localStorage.setItem('userDetails',JSON.stringify(data));
             reset();
+            alert(`Thank you ${data.firstName} for setting up an account with us. You will receive an email at ${data.emailAddress} with a link to confirm your account. Welcome!!`);
+            window.location.reload();
         })}>
 
         <h1>ACCOUNT INFORMATION</h1>

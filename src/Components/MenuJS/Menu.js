@@ -2,13 +2,13 @@ import "../../Styling/MenuCSS/Menu.css"
 import '../../Styling/MenuCSS/MenuCard.css'
 import Footer from "../Footer"
 import {FaArrowLeft} from "react-icons/fa"
-import {Link, json} from "react-router-dom"
+import {Link} from "react-router-dom"
 import Logo from '../../Resources/Logo .svg'
 import Cart from "../../Resources/Basket.svg"
 import "../../Styling/MenuCSS/HeaderWithCart.css"
 import AddItemToCart from './AddItemToCart'
 import { useMenuItemsContext } from "../../Context/MenuItemsContext"
-import { useEffect, useState } from "react"
+import { useEffect} from "react"
 
 const HeaderWithCart=()=>{
     const {totalDishesSelected} = useMenuItemsContext();
@@ -90,8 +90,7 @@ export default function Menu(){
         ()=>{
                 window.addEventListener('click',()=>RetrieveDish());
                 return window.removeEventListener('click',()=>RetrieveDish());
-        }
-    ,[noOfItemSelected]); 
+        },[noOfItemSelected]); 
     return(
         <>  
             <HeaderWithCart/>
@@ -99,7 +98,7 @@ export default function Menu(){
                 <div className="MenuBody">
                 <h1 id="Dish">Dish</h1>
                 <h1 id="Price">Price</h1>
-                <div id="MenuCard">{dishes.map( ({key,category,name,price,description})=><MenuItems Category={category} Name={name} Price={price} Description={description} dbKey={key}/>)}
+                <div id="MenuCard">{dishes.map( ({key,category,name,price,description})=><MenuItems Category={category} Name={name} Price={price} Description={description} dbKey={key} key={key}/>)}
                 </div>
                 {isUserLoggedIn?<Link to='/OrderOnline'>Order Now!</Link>:<Link to='/Login'>Order Now!</Link>}
                 </div>

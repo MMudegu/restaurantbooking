@@ -17,6 +17,7 @@ export default function LoginForm(){
                             {
                                 //This will be avail a status for each session for determining user access after login
                                 sessionStorage.setItem('userLoggedIn','true');
+                                alert(`Login successful`);
                                 navigate('/');
                             }
                         else alert('Invalid Username or Password');

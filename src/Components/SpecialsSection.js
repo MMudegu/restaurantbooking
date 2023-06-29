@@ -41,7 +41,7 @@ export default function SpecialsSection(){
     return (
         <main main className="SpecialsContainer">
             <h1>This Week's Specials!</h1>
-            {specials.map(({icon,title,price,description})=><Mapping icon={icon} title={title} price={price} description={description}/>)}
+            {specials.map(({icon,title,price,description})=><Mapping icon={icon} title={title} price={price} description={description} key={title}/>)}
             <Link to="/Menu" className="MenuButton">Online Menu</Link>
         </main>
     )

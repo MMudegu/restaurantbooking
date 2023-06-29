@@ -4,8 +4,6 @@ import Logo from '../Resources/Logo .svg'
 import {FaArrowLeft} from 'react-icons/fa'
 import Footer from '../Components/Footer'
 import { useForm } from "react-hook-form"
-import { yupResolver } from "@hookform/resolvers/yup"
-import * as yup from 'yup';
 import { useMenuItemsContext } from "../Context/MenuItemsContext"
 import { useEffect, useState } from "react"
 
@@ -28,7 +26,7 @@ const FilterFoodItems= ()=>{
             tempElement = element.key
             return typeOfFoodSelected.some((el)=> el===tempElement);
         }));
-    },typeOfFoodSelected); 
+    },[typeOfFoodSelected]); 
 
     return (
         <div className="MealChoices">
@@ -43,24 +41,36 @@ const FilterFoodItems= ()=>{
                 :<p><strong>Please Select A Meal On The Menu</strong></p>
             }
             <h2>{`Total Price (USD): $ ${totalAmount}`}</h2>
+            <button type="reset" className="ClearCart" onClick={()=>{window.location.reload()}}>Clear Cart</button>
         </div>
     )
 }
 
 
 export default function OrderOnline(){
+    const {typeOfFoodSelected} = useMenuItemsContext();
     const form = useForm();
     const {register,handleSubmit,reset} = form;
+    let mealNotSelected;
     const [enableCustomAddress,setEnableCustomAddress] = useState(false);
 
     const userDetails = JSON.parse(localStorage.getItem('userDetails'));
+
+    if(typeOfFoodSelected.length > 0){
+        mealNotSelected = false;
+    }
+    else{
+        mealNotSelected=true;
+    }
+
     return(
         <>
             <CartHeader/>
             <main className="OrderOnlineMain">
-                <form className="OrderForm" onSubmit={handleSubmit((data)=>{
+                <form className="OrderForm" onSubmit={handleSubmit((data,event)=>{
                     localStorage.setItem('userOrder',JSON.stringify(data));
                     reset();
+                    alert(`Thank you for your order ${userDetails.firstName}. You will receive an email confirmation at ${userDetails.emailAddress} with all the details. Our rider will reach you through ${userDetails.telephone} when your order is ready. Enjoy!!`);
                     window.location.reload();
                 })}>
                     <fieldset className="Order PaymentDetails">
@@ -103,7 +113,7 @@ export default function OrderOnline(){
                         <h2>Additional Instructions</h2>
                         <textarea rows={25} {...register('orderComments')}/>
                     </fieldset>
-                    <button type="submit" className="OrderButton">Order Now !</button>
+                    <button type="submit" className="OrderButton" disabled={mealNotSelected}>Order Now !</button>
                 </form>
             </main>
             <Footer/>

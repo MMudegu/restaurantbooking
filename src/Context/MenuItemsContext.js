@@ -12,7 +12,6 @@ export default function MenuItemsProvider({children}){
     const [typeOfFoodSelected,setTypeOfFoodSelected] = useState([]);
 
     const [totalAmount,setTotalAmount] = useState([]);
-
     return <menuItemsContext.Provider 
                 value={{noOfItemSelected,setNoOfItemSelected,dishes,totalDishesSelected,setTotalDishesSelected,
                         typeOfFoodSelected,setTypeOfFoodSelected,totalAmount,setTotalAmount}}>

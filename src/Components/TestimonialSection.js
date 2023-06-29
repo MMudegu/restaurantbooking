@@ -34,12 +34,8 @@ const RenderRating=({rating})=>{
     switch (rating) {
         case 4.5: return(<div className="RatingFive"><FaStar/><FaStar/><FaStar/><FaStar/><FaStar className="Half"/></div>);
             
-            break;
-        
         case 5: return(<div className="RatingFive"><FaStar/><FaStar/><FaStar/><FaStar/><FaStar/></div>);
-            
-            break;
-    
+                
         default:
             break;
     }
@@ -60,7 +56,7 @@ export default function TestimonialSection(){
     return(
         <main className="TestimonialSection">
             <h1>Testimonials</h1>
-            {testimonials.map(({rating,avatar,name,review})=><TestimonialCard rating={rating} avatar={avatar} name={name} review = {review}/>)}
+            {testimonials.map(({rating,avatar,name,review})=><TestimonialCard rating={rating} avatar={avatar} name={name} review = {review} key={name}/>)}
         </main>
     );
 }

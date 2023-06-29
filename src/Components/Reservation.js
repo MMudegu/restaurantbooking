@@ -4,7 +4,6 @@ import Footer from "./Footer"
 import Logo from "../Resources/Logo .svg"
 import {Link} from "react-router-dom"
 import {FaArrowLeft} from "react-icons/fa"
-import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from 'yup'
@@ -23,7 +22,6 @@ export const SimpleHeader = ()=>{
 }
 
 export default function Reservation(){
-    const [noOfGuests,setNoOfGuests] = useState(14);
     const schema = yup.object({
         firstName: yup.string('Please enter a valid name').required('This field is required'),
         lastName: yup.string('Please enter a valid name').required('This field is required'),
@@ -31,20 +29,26 @@ export default function Reservation(){
         telephone: yup.string().required('This field is required. It enables easier communication with our reception.'),
         bookingOccasion:yup.string().required('This field is required'),
         userDateInput:yup.string().required('This field is required'),
-        hrs:yup.number().typeError('Please enter valid hours').moreThan(1,'Please enter valid hours').lessThan(12,'Please enter valid hours'),
-        mins:yup.number().typeError('Please enter valid minutes').moreThan(1,'Please enter valid minutes').lessThan(12,'Please enter valid minutes'),
-        instructions:yup.string().min(25,'Please write a minimum of 25 characters').required('This field is required'),
+        hrs:yup.number().typeError('Please enter valid hours').moreThan(0,'Please enter valid hours').lessThan(12,'Please enter valid hours'),
+        mins:yup.number().typeError('Please enter valid minutes').lessThan(59,'Please enter valid minutes'),
+        noOfGuests:yup.number().required('Pick number of guests').lessThan(16)
     });
 
     const form = useForm({mode:'onTouched',resolver:yupResolver(schema)});
-    const {register,formState,handleSubmit,reset} = form;
+    const {register,formState,handleSubmit,reset,watch} = form;
     const {errors} = formState;
-
+    const userDetails = JSON.parse(localStorage.getItem('userDetails'));
+ 
     return(
         <>
         <SimpleHeader/>
         <main>
-            <form className="Form" onSubmit={handleSubmit(data=>{localStorage.setItem('tableBookingInfo',JSON.stringify(data));reset()})}>
+            <form className="Form" onSubmit={handleSubmit(data=>{
+                    localStorage.setItem('tableBookingInfo',JSON.stringify(data));
+                    reset();
+                    alert(`Thank you for your reservation ${userDetails.firstName}. You will receive an email confirmation at ${userDetails.emailAddress} with all the details. A remainder will also be sent to you 6 hours before the reservation time. Enjoy!!`);
+                    window.location.reload();
+                })}>
                 <h1>Reserve a table</h1>
                 <fieldset className="UserDetails">
                     <label htmlFor="FirstName">First Name:</label>
@@ -87,12 +91,12 @@ export default function Reservation(){
                     <div className="Time">
                         <p>Pick the Time:</p>
                         <span>
-                            <label htmlFor="Hours" id="Hours">HRS:</label>
+                            <label htmlFor="Hours">HRS:</label>
                             <input type="number" id="Hours" {...register('hrs',{onBlur:()=>errors.hrs?changeBorderColor('Hours'):null})}/> 
                             <p className="Errors">{errors.hrs?.message}</p>  
                         </span>
                         <span>
-                            <label htmlFor="Mins" id="Mins">MINS:</label>
+                            <label htmlFor="Mins">MINS:</label>
                             <input type="number" id="Mins" {...register('mins',{onBlur:()=>errors.mins?changeBorderColor('Mins'):null})}/>
                             <p className="Errors">{errors.mins?.message}</p>
                         </span>
@@ -105,14 +109,14 @@ export default function Reservation(){
                         <p>Private room? :</p>
                         <input type="radio" id="PrivateRoomYes" {...register('privateRoom')} value="yes"/>
                         <label htmlFor="PrivateRoomYes">Yes</label> 
-                        <input type="radio" id="PrivateRoomNo" {...register('privateRoom')} value="no" checked/>
+                        <input type="radio" id="PrivateRoomNo" {...register('privateRoom')} value="no" defaultChecked/>
                         <label htmlFor="PrivateRoomNo">No</label>
                     </div>
                 </fieldset>
                 <fieldset className="NumberOfGuests">
-                    <label htmlFor="NoOfGuests">Choose the number of guests</label>
-                    <p>{noOfGuests}</p>
-                    <input type="range" id="NoOfGuests" name="noOfGuests" min={1} max={14} onChange={(e)=>setNoOfGuests(e.target.value)}/>
+                    <label htmlFor="NoOfGuests">Choose the number of guests (The default is One)</label>
+                    <p>{watch('noOfGuests')}</p>
+                    <input type="range" id="NoOfGuests" {...register('noOfGuests')} min={1} max={15} defaultValue={1}/>
                 </fieldset>
                 <fieldset className="Comments">
                     <label htmlFor="Instructions">Additional Instructions</label>
