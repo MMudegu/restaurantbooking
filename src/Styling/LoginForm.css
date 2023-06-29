@@ -34,6 +34,10 @@
     color: #F4CE14;
 }
 
+.LoginButton:hover{
+    box-shadow: 0px 0px 30px grey;
+}
+
 @media screen and (max-width:600px) {
     .LoginDetails{
         min-width: 100vw;

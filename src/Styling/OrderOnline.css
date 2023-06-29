@@ -75,6 +75,9 @@
     background-color: #F4CE14;
     width: 200px;
 }
+.ClearCart:hover{
+    box-shadow: 0px 0px 30px #333333;
+}
 
 .Instructions{
     display: grid;

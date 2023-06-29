@@ -36,7 +36,7 @@ export default function LoginForm(){
                 <label htmlFor='LoginPassword'>Password:</label>
                 <input id='LoginPassword' {...register('loginPassword',{required:'This field is required'})} type='password'/>
                 <p> {errors.loginPassword?.message}</p>
-                <button type='submit'>Log In</button>
+                <button type='submit' className='LoginButton'>Log In</button>
             </div>
             
         </form>

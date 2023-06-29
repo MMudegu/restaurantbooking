@@ -30,6 +30,7 @@ p, .ReserveButton{
     background-color: #F4CE14;
     border-radius: 5px;
     grid-row-start: 4;
+    max-width: -moz-fit-content;
     max-width: fit-content;
     padding: 10px;
     margin-bottom: 2em;
